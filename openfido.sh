@@ -27,7 +27,10 @@ apt-get -q -y update > /dev/null
 apt-get -q -y install python3 python3-pip > /dev/null
 python3 -m pip install -q -r requirements.txt > /dev/null
 
+# wget necessary to download any remote configurations
 apt-get -q -y install wget > /dev/null
+
+# Copy, paste and adjust the two lines below to remotely pull whichever configuration you want to run
 wget https://raw.githubusercontent.com/openfido/utilities/main/openfidodl.sh
 . ./openfidodl.sh
 

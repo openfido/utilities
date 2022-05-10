@@ -10,8 +10,4 @@ wget https://raw.githubusercontent.com/openfido/utilities/main/urldownload.js
 
 node urldownload.js $OPENFIDO_INPUT || error
 
-cd $OPENFIDO_INPUT
-
-wget --input-file=curls.txt
-
-cd /tmp/gitrepo
+wget -P $OPENFIDO_INPUT --input-file=curls.txt
