@@ -32,14 +32,19 @@ args.forEach(function (val, index, array) {
                 const array = typeof str === 'string' ? str.match(urlRegex) : [];
                 console.log(array);
                 if (typeof str !== 'string') {
-                    console.log('Error in parse, expected a string but received:', typeof str);
-                    console.log('with a value of:', str)
+                    console.error('Error in parse, expected a string but received:', typeof str);
+                    console.error('with a value of:', str)
                 }
 
                 // Generate a wget friendly file full of properly spaced URLs to download!
-                let fileContent = array.join('\n');
-                fileContent += '\n';
-                fs.appendFileSync('./curls.txt', fileContent);
+                if (array.length >= 1) {
+                    let fileContent = array.join('\n');
+                    fileContent += '\n';
+                    fs.appendFileSync('./curls.txt', fileContent);                   
+                } else {
+                    let fileContent = '';
+                    fs.appendFileSync('./curls.txt', fileContent);
+                }
               }); 
         });
     });
