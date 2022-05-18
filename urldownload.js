@@ -29,7 +29,7 @@ args.forEach(function (val, index, array) {
 
                 // Use a regex to find all URLs, logged for users to read
                 var urlRegex = /(https?:\/\/[^\s]+)/g;
-                const array = [...str.match(urlRegex)];
+                const array = typeof str === 'string' ? str.match(urlRegex) : [];
                 console.log(array);
 
                 // Generate a wget friendly file full of properly spaced URLs to download!
