@@ -31,6 +31,10 @@ args.forEach(function (val, index, array) {
                 var urlRegex = /(https?:\/\/[^\s]+)/g;
                 const array = typeof str === 'string' ? str.match(urlRegex) : [];
                 console.log(array);
+                if (typeof str !== 'string') {
+                    console.log('Error in parse, expected a string but received:', typeof str);
+                    console.log('with a value of:', str)
+                }
 
                 // Generate a wget friendly file full of properly spaced URLs to download!
                 let fileContent = array.join('\n');
