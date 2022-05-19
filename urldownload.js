@@ -36,8 +36,13 @@ args.forEach(function (val, index, array) {
                     console.error('with a value of:', str)
                 }
 
+                //Potential Error Checks
+                if (array === null) {
+                    console.error('No URL matches were found in the provided files.')
+                }
+
                 // Generate a wget friendly file full of properly spaced URLs to download!
-                if (array.length >= 1) {
+                if (array !== null && Array.isArray(array)) {
                     let fileContent = array.join('\n');
                     fileContent += '\n';
                     fs.appendFileSync('./curls.txt', fileContent);                   
